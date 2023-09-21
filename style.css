@@ -1,0 +1,39 @@
+body{
+    background-color: blanchedalmond;
+}
+
+h1{
+    font-family: Wicked Grit, sans serif;
+    font-size: 80px;
+    color: brown;
+    margin: 40px;
+    text-align: center;
+}
+
+h2{
+    font-family: Dark of the Moon, sans serif;
+    font-size: 40px;
+}
+
+.game-board{
+    background-color: sienna;
+    margin: 0 auto;
+    width: 1000px;
+    height: 650px;
+    border-radius: 10px;
+}
+
+.game-frame{
+    position: relative;
+}
+
+#frame-element{
+    margin: 0 auto;
+    width: 1000px;
+    height: 600px;
+}
+
+#score-keeper{
+    margin-left: 50px;
+    position: absolute;
+}
