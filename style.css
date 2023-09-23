@@ -19,7 +19,7 @@ h2{
     background-color: sienna;
     margin: 0 auto;
     width: 1000px;
-    height: 650px;
+    height: 750px;
     border-radius: 10px;
 }
 
@@ -34,6 +34,32 @@ h2{
 }
 
 #score-keeper{
-    margin-left: 50px;
-    position: absolute;
+    margin-left: 90px;
+}
+
+.score-boxes{
+display: flex;
+margin: 0 auto;
+padding: 30px;
+}
+
+.score-boxes img{
+width: 50px;
+}
+
+.item-gallery{
+    display: flex;
+    flex-wrap: wrap;
+    width: 1000px;
+    margin-left: 20px;
+}
+
+.img-gallery img{
+    margin-left: 80px;
+    margin-top: 50px;
+}
+
+.game-instructions{
+    display: flex;
+    margin-top: 40px;
 }
