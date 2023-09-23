@@ -52,6 +52,7 @@ width: 50px;
     flex-wrap: wrap;
     width: 1000px;
     margin-left: 20px;
+    padding-top: 30px;
 }
 
 .img-gallery img{
@@ -62,4 +63,14 @@ width: 50px;
 .game-instructions{
     display: flex;
     margin-top: 40px;
+}
+
+.selected{
+    border: 5px solid yellow;
+    padding: 2px;
+}
+
+.wrong-combination{
+    border: 5px solid red;
+    padding: 2px;
 }
