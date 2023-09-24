@@ -55,9 +55,19 @@ width: 50px;
     padding-top: 30px;
 }
 
-.img-gallery img{
-    margin-left: 80px;
+.combo-1 img{
+    margin-left: 90px;
     margin-top: 50px;
+}
+.combo-2 img{
+    margin-left: 90px;
+    margin-top: 50px;
+    
+}
+
+.combo-3 img{
+    margin-left: 90px;
+    margin-top: 50px;xs
 }
 
 .game-instructions{

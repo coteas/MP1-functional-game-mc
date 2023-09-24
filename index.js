@@ -1,14 +1,15 @@
+let selectedImages = document.querySelectorAll(".combo-1, .combo-2, .combo-3")
+document.addEventListener('click', function selected(evt) {
+evt.target.classList.toggle('selected');
+  });  
 
-selectedImages.addEventListener("click", selected({
-
-});
 
 function selected(){
-    let selectedImages = document.querySelector(".img-gallery")
-
+selectedImages.forEach(image =>{
+    image.classList.add('selected')
+})
 
 }
-
 
 function winCounter(){
 
@@ -17,5 +18,4 @@ function winCounter(){
 
 
 
-switchImage()
 winCounter()
