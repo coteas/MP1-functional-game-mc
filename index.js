@@ -7,13 +7,14 @@ let successAudio = new Audio('assets/success-bell.mp3')
 let selectedImages = document.querySelector(".item-gallery")
 let correctAnswer = true
 let wrongAnswer = true
-
+// The selectedImages works kind of. It's a little buggy so advice on this would help. 
 
 document.addEventListener('click', function selected(evt) {
 evt.target.classList.toggle('selected');
 selectedItemAudio.play();
   });  
-
+//I'm trying to make it so that when two divs are clicked, then they are hidden. 
+// I've tried it with the first combo but nothing seems to be working
   document.addEventListener('click', function firstCombo(evt) {
 
       }); 
@@ -21,7 +22,7 @@ selectedItemAudio.play();
 function thatIsIncorrect(){
 
 }
-
+//Here's where I'm stuck 
 function firstCombo(e){
 let aClass = document.querySelectorAll(".combo-1a, .combo-1b")
 aClass = correctAnswer
