@@ -55,21 +55,34 @@ width: 50px;
     padding-top: 30px;
 }
 
-.combo-1 img{
+.combo-1a img{
     margin-left: 90px;
     margin-top: 50px;
 }
-.combo-2 img{
+.combo-1b img{
+    margin-left: 90px;
+    margin-top: 50px;
+}
+.combo-2a img{
+    margin-left: 90px;
+    margin-top: 50px;
+    
+}
+.combo-2b img{
     margin-left: 90px;
     margin-top: 50px;
     
 }
 
-.combo-3 img{
+.combo-3a img{
     margin-left: 90px;
     margin-top: 50px;xs
 }
 
+.combo-3b img{
+    margin-left: 90px;
+    margin-top: 50px;xs
+}
 .game-instructions{
     display: flex;
     margin-top: 40px;
@@ -79,6 +92,11 @@ width: 50px;
     border: 5px solid yellow;
     padding: 2px;
 }
+
+.correct-answer{
+   display: none;
+}
+
 
 .wrong-combination{
     border: 5px solid red;
