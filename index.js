@@ -4,6 +4,8 @@ let incorrectSelectAudio = new Audio('assets/negative-beep.mp3')
 let failureAudio = new Audio('assets/negative-beep.mp3')
 let successAudio = new Audio('assets/success-bell.mp3')
 let selectedImages = document.querySelector(".item-gallery")
+//loss tracker
+let lossTracker = 0
 
 for(let i=0; i < selectedImages.children.length; i++){
     selectedImages.children[i].addEventListener('click', (evt)=> {
@@ -18,6 +20,10 @@ if(aClass.length == 2){
 aClass.forEach(image =>{
 image.classList.add('correct-answer')
 correctSelectAudio.play();
+})
+aClass.forEach(image =>{
+    //this is to remove the html element
+    image.remove()
 })
 }else if(aClass.length == 1){
     let currentSelected = document.querySelectorAll('.selected')
@@ -37,6 +43,10 @@ document.querySelector(".combo-1b").addEventListener('click',  (e)=> {
     image.classList.add('correct-answer')
     correctSelectAudio.play();
     })
+    aClass.forEach(image =>{
+        //this is to remove the html element
+        image.remove()
+    })
 }else if(aClass.length == 1){
     let currentSelected = document.querySelectorAll('.selected')
 if(document.querySelectorAll('.selected').length > 1) {
@@ -54,6 +64,10 @@ document.querySelector(".combo-2a").addEventListener('click',  (e)=> {
     bClass.forEach(image =>{
     image.classList.add('correct-answer')
     correctSelectAudio.play();
+    })
+    aClass.forEach(image =>{
+        //this is to remove the html element
+        image.remove()
     })
 }else if(bClass.length == 1){
     let currentSelected = document.querySelectorAll('.selected')
@@ -73,6 +87,10 @@ document.querySelector(".combo-2b").addEventListener('click',  (e)=> {
     image.classList.add('correct-answer')
     correctSelectAudio.play();
     })
+    aClass.forEach(image =>{
+        //this is to remove the html element
+        image.remove()
+    })
 }else if(bClass.length == 1){
     let currentSelected = document.querySelectorAll('.selected')
     if(document.querySelectorAll('.selected').length > 1) {
@@ -91,6 +109,10 @@ if(cClass.length == 2){
         image.classList.add('correct-answer')
         correctSelectAudio.play();
         })
+        aClass.forEach(image =>{
+            //this is to remove the html element
+            image.remove()
+        })
 }else if(cClass.length == 1){
     let currentSelected = document.querySelectorAll('.selected')
 if(document.querySelectorAll('.selected').length > 1) {
@@ -108,6 +130,10 @@ if(cClass.length == 2){
         cClass.forEach(image =>{
         image.classList.add('correct-answer')
         correctSelectAudio.play();
+        })
+        aClass.forEach(image =>{
+            //this is to remove the html element
+            image.remove()
         })     
 }else if(cClass.length == 1){
     let currentSelected = document.querySelectorAll('.selected')
@@ -127,6 +153,11 @@ function youWin(){
 
 
 function youLose(){
+//1. want to keep track of how many times wrong answer has been applied
+// (how many times wrong answer class has been added to an element)
+//2. once that hits 3, then do popup that says you lose
+//Going to want variable to track wrong answers to be global so that way this function and other functions will be able to track triggers
+
 
 
 }
