@@ -76,12 +76,12 @@ width: 50px;
 
 .combo-3a img{
     margin-left: 90px;
-    margin-top: 50px;xs
+    margin-top: 50px;
 }
 
 .combo-3b img{
     margin-left: 90px;
-    margin-top: 50px;xs
+    margin-top: 50px;
 }
 .game-instructions{
     display: flex;
@@ -89,8 +89,7 @@ width: 50px;
 }
 
 .selected{
-    border: 5px solid yellow;
-    padding: 2px;
+    outline: 5px solid yellow;
 }
 
 .correct-answer{
@@ -98,7 +97,6 @@ width: 50px;
 }
 
 
-.wrong-combination{
-    border: 5px solid red;
-    padding: 2px;
+.wrong-answer{
+    outline: 5px solid red;
 }

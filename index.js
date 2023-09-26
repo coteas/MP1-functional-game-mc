@@ -5,46 +5,81 @@ let failureAudio = new Audio('assets/negative-beep.mp3')
 let successAudio = new Audio('assets/success-bell.mp3')
 
 let selectedImages = document.querySelector(".item-gallery")
-let correctAnswer = true
-let wrongAnswer = true
-// The selectedImages works kind of. It's a little buggy so advice on this would help. 
 
 document.addEventListener('click', function selected(evt) {
 evt.target.classList.toggle('selected');
 selectedItemAudio.play();
-  });  
-//I'm trying to make it so that when two divs are clicked, then they are hidden. 
-// I've tried it with the first combo but nothing seems to be working
-  document.addEventListener('click', function firstCombo(evt) {
+    });  
 
-      }); 
-  
-function thatIsIncorrect(){
-
-}
-//Here's where I'm stuck 
-function firstCombo(e){
-let aClass = document.querySelectorAll(".combo-1a, .combo-1b")
-aClass = correctAnswer
-if(correctAnswer){
-   aClass.forEach(image =>{
-    image.classList.add('correct-answer')
-   })
+document.querySelector(".combo-1a").addEventListener('click', (e)=> {
+let aClass = document.querySelectorAll(".combo-1a > img.selected, .combo-1b > img.selected")
+if(aClass.length == 2){
+aClass.forEach(image =>{
+image.classList.add('correct-answer')
+})
 }else{
-    e.classList.add('wrong-answer')
+e.target.classList.add('wrong-answer')
 }
-}
+});
 
-function secondCombo(e){
+document.querySelector(".combo-1b").addEventListener('click',  (e)=> {
+    let aClass = document.querySelectorAll(".combo-1a > img.selected, .combo-1b > img.selected")
+    if(aClass.length == 2){
+    aClass.forEach(image =>{
+    image.classList.add('correct-answer')
+    })
+    }else{
+    e.target.classList.add('wrong-answer')
+    }
+    });
 
-}
+document.querySelector(".combo-2a").addEventListener('click',  (e)=> {
+    let bClass = document.querySelectorAll(".combo-2a > img.selected, .combo-2b > img.selected")
+    if(bClass.length == 2){
+    bClass.forEach(image =>{
+    image.classList.add('correct-answer')
+    })
+    }else{
+    e.target.classList.add('wrong-answer')
+    }
+    });
 
-function thirdCombo(e){
+document.querySelector(".combo-2b").addEventListener('click',  (e)=> {
+    let bClass = document.querySelectorAll(".combo-2a > img.selected, .combo-2b > img.selected")
+    if(bClass.length == 2){
+    bClass.forEach(image =>{
+    image.classList.add('correct-answer')
+    })
+    }else{
+    e.target.classList.add('wrong-answer')
+    }
+    });
 
-}
+document.querySelector(".combo-3a").addEventListener('click',  (e)=> {
+    let cClass = document.querySelectorAll(".combo-3a > img.selected, .combo-3b > img.selected")
+    if(cClass.length == 2){
+    cClass.forEach(image =>{
+    image.classList.add('correct-answer')
+    })
+    }else{
+    e.target.classList.add('wrong-answer')
+    }
+    });
+
+document.querySelector(".combo-3b").addEventListener('click', (e)=> {
+    let cClass = document.querySelectorAll(".combo-3a > img.selected, .combo-3b > img.selected")
+    if(cClass.length == 2){
+    cClass.forEach(image =>{
+    image.classList.add('correct-answer')
+    })
+    }else{
+    e.target.classList.add('wrong-answer')
+    }
+    });
+
 
 function selected(){
 selectedImages.forEach(image =>{
-    image.classList.add('selected')
+image.classList.add('selected')
 })
 }
