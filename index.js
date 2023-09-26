@@ -6,10 +6,12 @@ let successAudio = new Audio('assets/success-bell.mp3')
 
 let selectedImages = document.querySelector(".item-gallery")
 
-document.addEventListener('click', function selected(evt) {
-evt.target.classList.toggle('selected');
-selectedItemAudio.play();
-    });  
+for(let i=0; i < selectedImages.children.length; i++){
+    selectedImages.children[i].addEventListener('click', (evt)=> {
+        evt.target.classList.toggle('selected');
+        selectedItemAudio.play();
+            });
+}
 
 document.querySelector(".combo-1a").addEventListener('click', (e)=> {
 let aClass = document.querySelectorAll(".combo-1a > img.selected, .combo-1b > img.selected")
@@ -17,6 +19,8 @@ if(aClass.length == 2){
 aClass.forEach(image =>{
 image.classList.add('correct-answer')
 })
+}else if(aClass.length == 1){
+    
 }else{
 e.target.classList.add('wrong-answer')
 }
@@ -28,7 +32,9 @@ document.querySelector(".combo-1b").addEventListener('click',  (e)=> {
     aClass.forEach(image =>{
     image.classList.add('correct-answer')
     })
-    }else{
+}else if(aClass.length == 1){
+        
+}else{
     e.target.classList.add('wrong-answer')
     }
     });
@@ -39,6 +45,8 @@ document.querySelector(".combo-2a").addEventListener('click',  (e)=> {
     bClass.forEach(image =>{
     image.classList.add('correct-answer')
     })
+    }else if(bClass.length == 1){
+
     }else{
     e.target.classList.add('wrong-answer')
     }
@@ -50,6 +58,8 @@ document.querySelector(".combo-2b").addEventListener('click',  (e)=> {
     bClass.forEach(image =>{
     image.classList.add('correct-answer')
     })
+  }else if(bClass.length == 1){
+        
     }else{
     e.target.classList.add('wrong-answer')
     }
@@ -61,7 +71,9 @@ document.querySelector(".combo-3a").addEventListener('click',  (e)=> {
     cClass.forEach(image =>{
     image.classList.add('correct-answer')
     })
-    }else{
+}else if(cClass.length == 1){
+        
+}else{
     e.target.classList.add('wrong-answer')
     }
     });
@@ -72,14 +84,9 @@ document.querySelector(".combo-3b").addEventListener('click', (e)=> {
     cClass.forEach(image =>{
     image.classList.add('correct-answer')
     })
-    }else{
+}else if(cClass.length == 1){
+        
+}else{
     e.target.classList.add('wrong-answer')
     }
     });
-
-
-function selected(){
-selectedImages.forEach(image =>{
-image.classList.add('selected')
-})
-}
