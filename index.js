@@ -4,8 +4,9 @@ let incorrectSelectAudio = new Audio('assets/negative-beep.mp3')
 let failureAudio = new Audio('assets/negative-beep.mp3')
 let successAudio = new Audio('assets/success-bell.mp3')
 let selectedImages = document.querySelector(".item-gallery")
-//loss tracker
-let lossTracker = 0
+//win-lose counter
+let loss = 0
+let win = 0
 
 for(let i=0; i < selectedImages.children.length; i++){
     selectedImages.children[i].addEventListener('click', (evt)=> {
@@ -31,7 +32,7 @@ aClass.forEach(image =>{
         for(let i=0;i < currentSelected.length; i++){
             currentSelected[i].classList.add('wrong-answer')
             incorrectSelectAudio.play();
-        }
+    }
     }
 }
 });
@@ -44,7 +45,6 @@ document.querySelector(".combo-1b").addEventListener('click',  (e)=> {
     correctSelectAudio.play();
     })
     aClass.forEach(image =>{
-        //this is to remove the html element
         image.remove()
     })
 }else if(aClass.length == 1){
@@ -65,8 +65,7 @@ document.querySelector(".combo-2a").addEventListener('click',  (e)=> {
     image.classList.add('correct-answer')
     correctSelectAudio.play();
     })
-    aClass.forEach(image =>{
-        //this is to remove the html element
+    bClass.forEach(image =>{
         image.remove()
     })
 }else if(bClass.length == 1){
@@ -87,8 +86,7 @@ document.querySelector(".combo-2b").addEventListener('click',  (e)=> {
     image.classList.add('correct-answer')
     correctSelectAudio.play();
     })
-    aClass.forEach(image =>{
-        //this is to remove the html element
+    bClass.forEach(image =>{
         image.remove()
     })
 }else if(bClass.length == 1){
@@ -109,8 +107,7 @@ if(cClass.length == 2){
         image.classList.add('correct-answer')
         correctSelectAudio.play();
         })
-        aClass.forEach(image =>{
-            //this is to remove the html element
+        cClass.forEach(image =>{
             image.remove()
         })
 }else if(cClass.length == 1){
@@ -131,10 +128,10 @@ if(cClass.length == 2){
         image.classList.add('correct-answer')
         correctSelectAudio.play();
         })
-        aClass.forEach(image =>{
-            //this is to remove the html element
+        cClass.forEach(image =>{
             image.remove()
-        })     
+        })
+
 }else if(cClass.length == 1){
     let currentSelected = document.querySelectorAll('.selected')
 if(document.querySelectorAll('.selected').length > 1) {
@@ -142,15 +139,16 @@ if(document.querySelectorAll('.selected').length > 1) {
             currentSelected[i].classList.add('wrong-answer')
             incorrectSelectAudio.play();
         }
+       
     }
     }
 });
 
 
 function youWin(){
-
+  //trying to specify that a pop up only triggers when .selected == 0, but it launches as soon as the program loads 
+  //should I put an if/else statement so it knows only to trigger if 
 }
-
 
 function youLose(){
 //1. want to keep track of how many times wrong answer has been applied
