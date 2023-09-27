@@ -147,9 +147,18 @@ if(document.querySelectorAll('.selected').length > 1) {
 
 function youWin(){
   //trying to specify that a pop up only triggers when .selected == 0, but it launches as soon as the program loads 
-  //should I put an if/else statement so it knows only to trigger if 
+  //should I put an if/else statement so it knows only to trigger if
+  //this is all not firing the way it should
+if(selectedImages.children == 0){
+    for(let i=0; i < selectedImages.children.length; i++){
+        console.log("you win")
+    }
+    
+}else{
+    //nothing happens
 }
-
+    
+  }
 function youLose(){
 //1. want to keep track of how many times wrong answer has been applied
 // (how many times wrong answer class has been added to an element)
@@ -159,3 +168,5 @@ function youLose(){
 
 
 }
+
+youWin()
