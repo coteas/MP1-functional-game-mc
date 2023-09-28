@@ -170,6 +170,7 @@ function youWin(){
     
     if(updatedImages.children.length == 0){
     console.log("You win!");
+    successAudio.play();
     }else{
     //nothing happens
     }
@@ -183,6 +184,7 @@ function youWin(){
         //Going to want variable to track wrong answers to be global so that way this function and other functions will be able to track triggers
         if (loss >= 3) {
         console.log("You suck!");
+        failureAudio.play();
         }
         
         }
