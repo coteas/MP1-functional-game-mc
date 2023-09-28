@@ -24,7 +24,7 @@ correctSelectAudio.play();
 })
 aClass.forEach(image =>{
     //this is to remove the html element
-    image.remove()
+    image.parentElement.remove(); // change made here
 })
 }else if(aClass.length == 1){
     let currentSelected = document.querySelectorAll('.selected')
@@ -44,19 +44,24 @@ document.querySelector(".combo-1b").addEventListener('click',  (e)=> {
     image.classList.add('correct-answer')
     correctSelectAudio.play();
     })
-    aClass.forEach(image =>{
-        image.remove()
+aClass.forEach(image =>{
+    //this is to remove the html element
+    image.parentElement.remove(); // change made here
     })
-}else if(aClass.length == 1){
-    let currentSelected = document.querySelectorAll('.selected')
-if(document.querySelectorAll('.selected').length > 1) {
-        for(let i=0;i < currentSelected.length; i++){
-            currentSelected[i].classList.add('wrong-answer')
-            incorrectSelectAudio.play();
-        }
+    youWin();
+    }else if(aClass.length == 1){
+    let currentSelected = document.querySelectorAll('.selected');
+    if(document.querySelectorAll('.selected').length > 1) {
+    for(let i=0;i < currentSelected.length; i++){
+    currentSelected[i].classList.add('wrong-answer');
+    incorrectSelectAudio.play();
     }
-}
-});
+    loss = loss+1; // change made here
+    youLose(); // change made here
+    }
+    }
+    });
+        
 
 document.querySelector(".combo-2a").addEventListener('click',  (e)=> {
     let bClass = document.querySelectorAll(".combo-2a > img.selected, .combo-2b > img.selected")
@@ -66,17 +71,20 @@ document.querySelector(".combo-2a").addEventListener('click',  (e)=> {
     correctSelectAudio.play();
     })
     bClass.forEach(image =>{
-        image.remove()
+        image.parentElement.remove(); // change made here
     })
-}else if(bClass.length == 1){
-    let currentSelected = document.querySelectorAll('.selected')
+    youWin();
+    }else if(bClass.length == 1){
+    let currentSelected = document.querySelectorAll('.selected');
     if(document.querySelectorAll('.selected').length > 1) {
-            for(let i=0;i < currentSelected.length; i++){
-                currentSelected[i].classList.add('wrong-answer')
-                incorrectSelectAudio.play();
-            }
-        }
-}
+    for(let i=0;i < currentSelected.length; i++){
+    currentSelected[i].classList.add('wrong-answer');
+    incorrectSelectAudio.play();
+    }
+    loss = loss+1; // change made here
+    youLose(); // change made here
+    }
+    }
     });
 
 document.querySelector(".combo-2b").addEventListener('click',  (e)=> {
@@ -87,17 +95,20 @@ document.querySelector(".combo-2b").addEventListener('click',  (e)=> {
     correctSelectAudio.play();
     })
     bClass.forEach(image =>{
-        image.remove()
+        image.parentElement.remove(); // change made here
     })
-}else if(bClass.length == 1){
-    let currentSelected = document.querySelectorAll('.selected')
+    youWin();
+    }else if(bClass.length == 1){
+    let currentSelected = document.querySelectorAll('.selected');
     if(document.querySelectorAll('.selected').length > 1) {
-            for(let i=0;i < currentSelected.length; i++){
-                currentSelected[i].classList.add('wrong-answer')
-                incorrectSelectAudio.play();
-            }
-        }
-}
+    for(let i=0;i < currentSelected.length; i++){
+    currentSelected[i].classList.add('wrong-answer');
+    incorrectSelectAudio.play();
+    }
+    loss = loss+1;
+    youLose();
+    }
+    }
     });
 
 document.querySelector(".combo-3a").addEventListener('click',  (e)=> {
@@ -108,17 +119,20 @@ if(cClass.length == 2){
         correctSelectAudio.play();
         })
         cClass.forEach(image =>{
-            image.remove()
+            image.parentElement.remove();
         })
-}else if(cClass.length == 1){
-    let currentSelected = document.querySelectorAll('.selected')
-if(document.querySelectorAll('.selected').length > 1) {
-        for(let i=0;i < currentSelected.length; i++){
-            currentSelected[i].classList.add('wrong-answer')
-            incorrectSelectAudio.play();
-        }
+        youWin();
+    }else if(cClass.length == 1){
+    let currentSelected = document.querySelectorAll('.selected');
+    if(document.querySelectorAll('.selected').length > 1) {
+    for(let i=0;i < currentSelected.length; i++){
+    currentSelected[i].classList.add('wrong-answer');
+    incorrectSelectAudio.play();
     }
-}
+    loss = loss+1;
+    youLose();
+    }
+    }
     });
 
 document.querySelector(".combo-3b").addEventListener('click', (e)=> {
@@ -129,44 +143,49 @@ if(cClass.length == 2){
         correctSelectAudio.play();
         })
         cClass.forEach(image =>{
-            image.remove()
+            image.parentElement.remove();
         })
 
-}else if(cClass.length == 1){
-    let currentSelected = document.querySelectorAll('.selected')
-if(document.querySelectorAll('.selected').length > 1) {
-        for(let i=0;i < currentSelected.length; i++){
-            currentSelected[i].classList.add('wrong-answer')
-            incorrectSelectAudio.play();
-        }
-       
+        youWin();
+    }else if(cClass.length == 1){
+    let currentSelected = document.querySelectorAll('.selected');
+    if(document.querySelectorAll('.selected').length > 1) {
+    for(let i=0;i < currentSelected.length; i++){
+    currentSelected[i].classList.add('wrong-answer');
+    incorrectSelectAudio.play();
+    }
+    loss = loss+1;
+    youLose(); 
     }
     }
-});
+    });
 
 
 function youWin(){
-  //trying to specify that a pop up only triggers when .selected == 0, but it launches as soon as the program loads 
-  //should I put an if/else statement so it knows only to trigger if
-  //this is all not firing the way it should
-if(selectedImages.children == 0){
-    for(let i=0; i < selectedImages.children.length; i++){
-        console.log("you win")
-    }
+    //trying to specify that a pop up only triggers when .selected == 0, but it launches as soon as the program loads
+    //should I put an if/else statement so it knows only to trigger if
+    //this is all not firing the way it should
     
-}else{
+    let updatedImages = document.querySelector(".item-gallery"); // change made here
+    
+    if(updatedImages.children.length == 0){
+    console.log("You win!");
+    }else{
     //nothing happens
-}
-    
-  }
-function youLose(){
-//1. want to keep track of how many times wrong answer has been applied
-// (how many times wrong answer class has been added to an element)
-//2. once that hits 3, then do popup that says you lose
-//Going to want variable to track wrong answers to be global so that way this function and other functions will be able to track triggers
+    }
+    }
 
 
-
-}
+    function youLose(){
+        //1. want to keep track of how many times wrong answer has been applied
+        // (how many times wrong answer class has been added to an element)
+        //2. once that hits 3, then do popup that says you lose
+        //Going to want variable to track wrong answers to be global so that way this function and other functions will be able to track triggers
+        if (loss >= 3) {
+        console.log("You suck!");
+        }
+        
+        }
 
 youWin()
+youLose()
