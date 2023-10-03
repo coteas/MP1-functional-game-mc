@@ -7,6 +7,8 @@ let selectedImages = document.querySelector(".item-gallery")
 //win-lose counter
 let loss = 0
 let win = 0
+let winnerWinner = document.querySelector("#you-win")
+let loserLoser = document.querySelector("#you-lose")
 
 for(let i=0; i < selectedImages.children.length; i++){
     selectedImages.children[i].addEventListener('click', (evt)=> {
@@ -24,18 +26,28 @@ correctSelectAudio.play();
 })
 aClass.forEach(image =>{
     //this is to remove the html element
-    image.parentElement.remove(); // change made here
+    image.parentElement.remove(); 
 })
+youWin();
 }else if(aClass.length == 1){
     let currentSelected = document.querySelectorAll('.selected')
     if(document.querySelectorAll('.selected').length > 1) {
-        for(let i=0;i < currentSelected.length; i++){
-            currentSelected[i].classList.add('wrong-answer')
-            incorrectSelectAudio.play();
-    }
-    }
-}
-});
+    for(let i=0;i < currentSelected.length; i++){
+        currentSelected[i].classList.add('wrong-answer');
+        incorrectSelectAudio.play();
+        
+        setTimeout(function () {
+            currentSelected[i].classList.remove('wrong-answer');
+            currentSelected[i].classList.remove('selected');
+            e.stopPropagation();
+            }, 1500);  
+        }
+
+        }
+        loss = loss+1; 
+        youLose();
+        }
+        });
 
 document.querySelector(".combo-1b").addEventListener('click',  (e)=> {
     let aClass = document.querySelectorAll(".combo-1a > img.selected, .combo-1b > img.selected")
@@ -46,7 +58,7 @@ document.querySelector(".combo-1b").addEventListener('click',  (e)=> {
     })
 aClass.forEach(image =>{
     //this is to remove the html element
-    image.parentElement.remove(); // change made here
+    image.parentElement.remove();
     })
     youWin();
     }else if(aClass.length == 1){
@@ -55,12 +67,22 @@ aClass.forEach(image =>{
     for(let i=0;i < currentSelected.length; i++){
     currentSelected[i].classList.add('wrong-answer');
     incorrectSelectAudio.play();
+    
+    //removes wrong answer and selected class
+    setTimeout(function () {
+        currentSelected[i].classList.remove('wrong-answer');
+        currentSelected[i].classList.remove('selected');
+        //this is supposed to "clear" the EventListener, however I don't know if it worked. It seems to be okay in the
+        e.stopPropagation();
+        }, 1500);   
     }
-    loss = loss+1; // change made here
-    youLose(); // change made here
+    
     }
+    loss = loss+1; 
+    youLose();
+  }
     }
-    });
+);
         
 
 document.querySelector(".combo-2a").addEventListener('click',  (e)=> {
@@ -71,7 +93,7 @@ document.querySelector(".combo-2a").addEventListener('click',  (e)=> {
     correctSelectAudio.play();
     })
     bClass.forEach(image =>{
-        image.parentElement.remove(); // change made here
+        image.parentElement.remove(); 
     })
     youWin();
     }else if(bClass.length == 1){
@@ -80,10 +102,16 @@ document.querySelector(".combo-2a").addEventListener('click',  (e)=> {
     for(let i=0;i < currentSelected.length; i++){
     currentSelected[i].classList.add('wrong-answer');
     incorrectSelectAudio.play();
+    
+    setTimeout(function () {
+        currentSelected[i].classList.remove('wrong-answer');
+        currentSelected[i].classList.remove('selected');
+        e.stopPropagation();
+        }, 1500);
     }
-    loss = loss+1; // change made here
-    youLose(); // change made here
     }
+    loss = loss+1;
+    youLose(); 
     }
     });
 
@@ -95,7 +123,7 @@ document.querySelector(".combo-2b").addEventListener('click',  (e)=> {
     correctSelectAudio.play();
     })
     bClass.forEach(image =>{
-        image.parentElement.remove(); // change made here
+        image.parentElement.remove();
     })
     youWin();
     }else if(bClass.length == 1){
@@ -104,10 +132,17 @@ document.querySelector(".combo-2b").addEventListener('click',  (e)=> {
     for(let i=0;i < currentSelected.length; i++){
     currentSelected[i].classList.add('wrong-answer');
     incorrectSelectAudio.play();
+    
+    setTimeout(function () {
+        currentSelected[i].classList.remove('wrong-answer');
+        currentSelected[i].classList.remove('selected');
+        e.stopPropagation();
+        }, 1500);    
+    }
+    
     }
     loss = loss+1;
     youLose();
-    }
     }
     });
 
@@ -128,10 +163,18 @@ if(cClass.length == 2){
     for(let i=0;i < currentSelected.length; i++){
     currentSelected[i].classList.add('wrong-answer');
     incorrectSelectAudio.play();
+    //whenever you add "wrong-answer" remove selected class
+    //in win-loss it needs to be something with UI and should show on the page
+    setTimeout(function () {
+        currentSelected[i].classList.remove('wrong-answer');
+        currentSelected[i].classList.remove('selected');
+        e.stopPropagation();
+        }, 1500);
+    }
+    
     }
     loss = loss+1;
-    youLose();
-    }
+    youLose(); 
     }
     });
 
@@ -145,32 +188,39 @@ if(cClass.length == 2){
         cClass.forEach(image =>{
             image.parentElement.remove();
         })
-
         youWin();
+
     }else if(cClass.length == 1){
     let currentSelected = document.querySelectorAll('.selected');
     if(document.querySelectorAll('.selected').length > 1) {
     for(let i=0;i < currentSelected.length; i++){
     currentSelected[i].classList.add('wrong-answer');
     incorrectSelectAudio.play();
+    
+    setTimeout(function () {
+        currentSelected[i].classList.remove('wrong-answer');
+        currentSelected[i].classList.remove('selected');
+        e.stopPropagation();
+        }, 1500);
+    }
+
     }
     loss = loss+1;
     youLose(); 
     }
-    }
+    
     });
 
 
 function youWin(){
-    //trying to specify that a pop up only triggers when .selected == 0, but it launches as soon as the program loads
-    //should I put an if/else statement so it knows only to trigger if
-    //this is all not firing the way it should
-    
-    let updatedImages = document.querySelector(".item-gallery"); // change made here
-    
+
+    let updatedImages = document.querySelector(".item-gallery");
+
     if(updatedImages.children.length == 0){
     console.log("You win!");
     successAudio.play();
+    document.querySelector("#you-win").style.opacity=1
+  document.querySelector("#you-win").innerText = `You win! Nice job.`
     }else{
     //nothing happens
     }
@@ -178,16 +228,15 @@ function youWin(){
 
 
     function youLose(){
-        //1. want to keep track of how many times wrong answer has been applied
-        // (how many times wrong answer class has been added to an element)
-        //2. once that hits 3, then do popup that says you lose
-        //Going to want variable to track wrong answers to be global so that way this function and other functions will be able to track triggers
-        if (loss >= 3) {
+        if (loss >= 6) {
         console.log("You suck!");
         failureAudio.play();
-        }
+        document.querySelector("#you-win").style.opacity=1
+        document.querySelector("#you-win").style.color = "#8B0000";
+        document.querySelector("#you-win").innerText = `You lost. Better luck next time!`
+        
+        }else{
+            //nothing happens
+            }
         
         }
-
-youWin()
-youLose()

@@ -1,5 +1,5 @@
 body{
-    background-color: blanchedalmond;
+    background-color: whitesmoke;
 }
 
 h1{
@@ -19,7 +19,7 @@ h2{
     background-color: sienna;
     margin: 0 auto;
     width: 1000px;
-    height: 700px;
+    height: 600px;
     border-radius: 10px;
 }
 
@@ -30,11 +30,17 @@ h2{
 #frame-element{
     margin: 0 auto;
     width: 1000px;
-    height: 600px;
+    height: 400px;
 }
 
 #score-keeper{
-    margin-left: 90px;
+    background-color: lightblue;
+    border: solid slategray;
+    margin: 0 auto;
+    width: 1000px;
+    height: 90px;
+    border-radius: 10px;
+    display: flex;
 }
 
 .score-boxes{
@@ -56,36 +62,41 @@ width: 50px;
 }
 
 .combo-1a img{
-    margin-left: 90px;
+    margin-left: 65px;
     margin-top: 50px;
 }
 .combo-1b img{
-    margin-left: 90px;
+    margin-left: 170px;
     margin-top: 50px;
 }
 .combo-2a img{
-    margin-left: 90px;
-    margin-top: 50px;
+    margin-left: 110px;
+    margin-top: 60px;
     
 }
 .combo-2b img{
-    margin-left: 90px;
+    margin-left: 65px;
     margin-top: 50px;
     
 }
 
 .combo-3a img{
     margin-left: 90px;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .combo-3b img{
-    margin-left: 90px;
+    margin-left: 120px;
     margin-top: 50px;
 }
 .game-instructions{
+    font-family: avenir, sans-serif;
+    color: black;
+    font-size: 16px;
+    padding-left: 20px;
+    padding-top: 12px;
     display: flex;
-    margin-top: 40px;
+    
 }
 
 .selected{
@@ -99,4 +110,27 @@ width: 50px;
 
 .wrong-answer{
     outline: 5px solid red;
+}
+
+#you-win{
+    opacity: 0;
+    font-family: avenir, sans-serif;
+    font-weight: bold;
+    color: black;
+    font-size: 20px;
+    margin-top: 20px;
+    margin-left: 30px;
+    display: flex;
+
+}
+
+#you-lose{
+    opacity: 0;
+    font-weight: bold;
+    font-family: avenir, sans-serif;
+    color: purple;
+    font-size: 20px;
+    margin-left: 20px;
+    padding-bottom:30px;
+    display: flex;
 }
